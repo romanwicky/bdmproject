@@ -1,4 +1,4 @@
-package src;
+package setup;
 
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
