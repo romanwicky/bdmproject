@@ -77,7 +77,7 @@ public final class Aggregation3 {
 
         JavaRDD<Document> mergedrdd = jsc.parallelize(merged_data);
 
-        // Write to mongodb as collection "TRAINDATAVENDORID"
+        // Write to mongodb as collection "TRAINRATECODE"
         Map<String, String> writeOverrides = new HashMap<>();
         writeOverrides.put("collection", "TRAINRATECODE");
         writeOverrides.put("writeConcern.w", "majority");
