@@ -15,8 +15,8 @@ public final class Aggregation {
         SparkSession spark = SparkSession.builder()
                 .master("local")
                 .appName("MongoSparkConnectorIntro")
-                .config("spark.mongodb.input.uri", "mongodb://localhost:27017/bdmfinal.NYT")
-                .config("spark.mongodb.output.uri", "mongodb://localhost:27017/bdmfinal.NYT")
+                .config("spark.mongodb.input.uri", "mongodb://localhost:27017/YellowTaxiCab.YTC")
+                .config("spark.mongodb.output.uri", "mongodb://localhost:27017/YellowTaxiCab.YTC")
                 .getOrCreate();
         // Create a JavaSparkContext using the SparkSession's SparkContext object
         JavaSparkContext jsc = new JavaSparkContext(spark.sparkContext());
@@ -27,10 +27,6 @@ public final class Aggregation {
         JavaMongoRDD<Document> aggregatedRdd = rdd.withPipeline(
                 singletonList(
                         Document.parse("{ $match: { \"trip_distance\": { $gt: \"2.0\"} } }")));
-
-
-
-
 
         /*End Example**************************************************/
         // Analyze data from MongoDB
