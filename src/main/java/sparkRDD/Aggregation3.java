@@ -30,7 +30,7 @@ public final class Aggregation3 {
         JavaMongoRDD<Document> rdd = MongoSpark.load(jsc);
         JavaMongoRDD<Document> rddrc1 = rdd.withPipeline(
                 singletonList(
-                        Document.parse("{ $match: { \"rate_code\": \"1\"} }")));
+                        Document.parse("{ $match: { \"rate_code\": 1} }")));
         // Analyze
         int sample_size = 50;
         List<Document> data = rddrc1.take(sample_size);
@@ -40,7 +40,7 @@ public final class Aggregation3 {
 
         JavaMongoRDD<Document> rddrc2 = rdd.withPipeline(
                 singletonList(
-                        Document.parse("{ $match: { \"rate_code\": \"2\"} }")));
+                        Document.parse("{ $match: { \"rate_code\": 2} }")));
 
         List<Document> data2 = rddrc2.take(sample_size);
         for(int i = 0; i <= 5;i++){
@@ -49,7 +49,7 @@ public final class Aggregation3 {
 
         JavaMongoRDD<Document> rddrc3 = rdd.withPipeline(
                 singletonList(
-                        Document.parse("{ $match: { \"rate_code\": \"3\"} }")));
+                        Document.parse("{ $match: { \"rate_code\": 3} }")));
 
         List<Document> data3 = rddrc3.take(sample_size);
         for(int i = 0; i <= 5;i++){
@@ -58,7 +58,7 @@ public final class Aggregation3 {
 
         JavaMongoRDD<Document> rddrc4 = rdd.withPipeline(
                 singletonList(
-                        Document.parse("{ $match: { \"rate_code\": \"4\"} }")));
+                        Document.parse("{ $match: { \"rate_code\": 4} }")));
 
         List<Document> data4 = rddrc4.take(sample_size);
         for(int i = 0; i <= 5;i++){

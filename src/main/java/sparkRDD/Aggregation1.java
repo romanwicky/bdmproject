@@ -8,7 +8,7 @@ import com.mongodb.spark.rdd.api.java.JavaMongoRDD;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-// Trip distance
+// Find all trip distances farther than 2 miles
 
 import static java.util.Collections.singletonList;
 public final class Aggregation1 {
