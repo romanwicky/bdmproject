@@ -25,7 +25,7 @@ services:
       - '7077:7077'
     volumes:
       - ./nb:/nb
-      - ${PWD}:/home/lab
+      - ${PWD}/:/home/lab
 
   spark-worker:
     image: docker.io/bitnami/spark:3.3
@@ -40,14 +40,4 @@ services:
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
       - SPARK_SSL_ENABLED=no
     volumes:
-      - ${PWD}:/home/lab
-
-  jupyter:
-    build: .
-    container_name: jupyter
-    environment:
-      - JUPYTER_TOKEN=admin@123
-    ports:
-      - 8888:8888
-    volumes:
-      - ${PWD}:/home/lab
+      - ${PWD}/:/home/lab
