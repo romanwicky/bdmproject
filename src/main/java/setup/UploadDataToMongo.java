@@ -37,27 +37,6 @@ public class UploadDataToMongo {
         JavaMongoRDD<Document> rdd = MongoSpark.load(jsc);
         long startTime = System.nanoTime();
         // -------------------- Start RDD -------------------
-
-        // Get all csv files to upload
-//        File[] allcsvfiles = new File("C:/Users/rwick/Downloads/archive").listFiles();
-//
-//        for(File f: allcsvfiles){
-//            StructType schema = new StructType().add("vendor_id", "string").
-//                                            add("pickup_datetime", "string").
-//                                            add("dropoff_datetime", "string").
-//                                            add("passenger_count", "long").
-//                                            add("trip_distance", "long");
-//            Dataset<Row> df = spark.read().option("mode", "DROPMALFORMED").schema(schema).csv(f.getAbsolutePath());
-//            JavaRDD<Row> dfrdd = df.toJavaRDD();
-//            JavaRDD<Document> dfrddoc = dfrdd.map(ft -> Document.parse(ft.toString()));
-//            // Write to mongodb as collection "TRAINRATECODE"
-//            Map<String, String> writeOverrides = new HashMap<>();
-//            writeOverrides.put("collection", "test");
-//            writeOverrides.put("writeConcern.w", "majority");
-//            WriteConfig writeConfig = WriteConfig.create(jsc).withOptions(writeOverrides);
-//            MongoSpark.save(dfrddoc, writeConfig);
-//        }
-//
         String csvfile = "C:/Users/rwick/Downloads/archive/yellow_tripdata_2012-01.csv";
         StructType schema = new StructType().add("vendor_id", "string").
                                             add("pickup_datetime", "string").
